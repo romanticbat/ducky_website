@@ -7,17 +7,18 @@
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&family=Comfortaa:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg-top: #FFF9E8;
-      --bg-bottom: #FFFDF7;
-      --accent: #B4D4FF;
-      --accent-light: #CDE2FF;
-      --pink: #FFB3B3;
-      --blue: #B4D4FF;
-      --yellow: #FFF4B0;
-      --white: #FFFDF7;
-      --dark: #4B3F39;
-      --muted: #FFF7DA;
-      --border: #E2DCC8;
+      --bg-top:#FFF7FB;
+      --bg-bottom:#FFFDFE;
+      --accent:#C8D9FF;
+      --accent-light:#E0E9FF;
+      --pink:#FFD6E8;
+      --blue:#D6EEFF;
+      --yellow:#FFF7C8;
+      --lilac:#EAD8FF;
+      --white:#FFFDFE;
+      --dark:#6E5B57;
+      --muted:#FFF8F3;
+      --border:#E9E2DD;
     }
 
     *{box-sizing:border-box;margin:0;padding:0}
@@ -43,11 +44,9 @@
       display:flex;
       align-items:center;
       gap:10px;
-      box-shadow:0 3px 6px rgba(0,0,0,0.05);
+      box-shadow:0 3px 6px rgba(0,0,0,0.03);
     }
-    .bar-icons img{
-      height:22px;width:auto;cursor:pointer;transition:.2s;opacity:.85;
-    }
+    .bar-icons img{height:22px;width:auto;cursor:pointer;transition:.2s;opacity:.85;}
     .bar-icons img:hover{transform:scale(1.1);opacity:1;}
     .bar-url{
       flex:1;
@@ -56,9 +55,31 @@
       border-radius:10px;
       padding:6px 12px;
       font-size:14px;
-      color:#6e655e;
+      color:#867a72;
       font-family:'Comfortaa',cursive;
     }
+
+  .theme-toggle {
+    position: absolute;
+    top: 14px;
+    right: 16px;
+    cursor: pointer;
+    background: var(--white);
+    border: 2px solid var(--border);
+    border-radius: 10px;
+    padding: 6px;
+    transition: 0.3s;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.05);
+  }
+  .theme-toggle:hover {
+    transform: scale(1.05);
+    background: var(--accent-light);
+  }
+  .theme-toggle img {
+    width: 24px;
+    height: 24px;
+    display: block;
+  }
 
     .browser-tabs{
       display:flex;
@@ -69,32 +90,28 @@
       padding:8px 12px;
     }
     .browser-tabs div{
-      background:#fffdf6;
+      background:#fffafc;
       border:2px solid var(--border);
       padding:6px 14px;
       border-radius:10px 10px 0 0;
       font-size:13px;
       font-weight:600;
-      color:#6d655f;
+      color:#867a72;
       cursor:pointer;
       transition:.2s;
-    }
-    .browser-tabs .active{
-      background:var(--accent);
-      color:#fff;
-      border-color:var(--accent);
     }
     .browser-tabs div:hover{transform:translateY(-2px)}
 
     .frame{
       border-radius:0 0 18px 18px;
       overflow:hidden;
-      box-shadow:0 12px 30px rgba(50,50,50,0.08);
+      box-shadow:0 12px 30px rgba(50,50,50,0.05);
       background:var(--white);
       border:3px solid var(--border);
+      position:relative;
     }
     .topbar{
-      background:linear-gradient(90deg,var(--accent),var(--pink));
+      background:linear-gradient(90deg,var(--lilac),var(--pink),var(--accent));
       color:#fff;
       padding:12px 18px;
       display:flex;
@@ -117,23 +134,16 @@
       border-radius:16px;
       overflow:hidden;
       border:3px solid var(--accent-light);
-      box-shadow:0 3px 10px rgba(0,0,0,0.08);
+      box-shadow:0 3px 10px rgba(0,0,0,0.06);
     }
     .avatar img{width:100%;height:100%;object-fit:cover}
-    .name-block h1{
-      font-family:'Comfortaa';
-      font-size:30px;
-      color:var(--dark);
-    }
-    .name-block p{
-      font-size:14px;
-      color:#7c7267;
-    }
+    .name-block h1{font-family:'Comfortaa';font-size:30px;color:var(--dark);}
+    .name-block p{font-size:14px;color:#867a72;}
     .cta{
       margin-top:12px;
       display:inline-block;
       padding:10px 20px;
-      background:linear-gradient(90deg,var(--accent),var(--pink));
+      background:linear-gradient(90deg,var(--lilac),var(--pink));
       color:#fff;
       font-weight:700;
       border-radius:10px;
@@ -147,47 +157,21 @@
       padding:20px;
       border-radius:14px;
       background:var(--muted);
-      box-shadow:0 4px 14px rgba(0,0,0,0.06);
+      box-shadow:0 4px 14px rgba(0,0,0,0.05);
     }
-    .feature h2{
-      margin:0;
-      font-size:22px;
-      color:var(--accent);
-    }
-    .feature p{
-      margin-top:10px;
-      color:#5a5046;
-      line-height:1.6;
-      font-size:15px;
-    }
-
-    .actions{
-      margin-top:18px;
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:12px;
-    }
+    .feature h2{margin:0;font-size:22px;color:var(--accent);}
+    .feature p{margin-top:10px;color:#6e5b57;line-height:1.6;font-size:15px;}
+    .actions{margin-top:18px;display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
     .actions .btn{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:8px;
-      background:var(--white);
-      border:2px solid var(--accent-light);
-      border-radius:10px;
-      padding:12px;
-      font-weight:600;
-      font-size:14px;
-      color:var(--dark);
-      transition:.2s;
-      cursor:pointer;
-      text-decoration:none;
+      display:flex;align-items:center;justify-content:center;gap:8px;
+      background:var(--white);border:2px solid var(--accent-light);
+      border-radius:10px;padding:12px;font-weight:600;font-size:14px;
+      color:var(--dark);transition:.2s;cursor:pointer;text-decoration:none;
     }
     .actions .btn img{width:20px;height:20px;}
     .actions .btn:hover{
       background:linear-gradient(90deg,var(--accent-light),var(--pink));
-      color:#fff;
-      transform:translateY(-2px);
+      color:#fff;transform:translateY(-2px);
     }
 
     .right-col{
@@ -208,29 +192,132 @@
       display:flex;
       align-items:center;
       justify-content:center;
-      box-shadow:0 4px 14px rgba(0,0,0,0.1);
+      box-shadow:0 4px 14px rgba(0,0,0,0.08);
     }
     .mascot img{width:80px;height:80px;}
-    .mascot-phrase{
-      font-size:14px;
-      color:#665544;
-      font-style:italic;
-      margin-top:6px;
-    }
+    .mascot-phrase{font-size:14px;color:#7a6a64;font-style:italic;margin-top:6px;}
 
     .footer{
-      text-align:center;
-      padding:12px;
-      font-size:12px;
-      background:var(--accent);
-      color:#fff;
-      letter-spacing:0.5px;
+      text-align:center;padding:12px;font-size:12px;
+      background:var(--accent);color:#fff;letter-spacing:0.5px;
       border-top:2px solid var(--accent-light);
     }
 
-    @media(max-width:820px){
-      .inner{grid-template-columns:1fr}
+    .status-modal {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.9);
+      background: var(--white);
+      border: 3px solid var(--accent-light);
+      border-radius: 20px;
+      padding: 30px;
+      text-align: center;
+      width: 280px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 999;
     }
+    .status-modal.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translate(-50%, -50%) scale(1);
+    }
+    .status-icon {font-size: 32px;display: block;margin-bottom: 10px;}
+    .status-text {font-weight: 600;font-size: 17px;margin-bottom: 15px;}
+    .status-close {
+      background: linear-gradient(90deg,var(--lilac),var(--pink));
+      color: #fff;
+      border: none;
+      padding: 8px 20px;
+      border-radius: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: .2s;
+    }
+    .status-close:hover {opacity: .9;transform: translateY(-2px);}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  margin-right: 1px;
+}
+    .modal{
+      position:absolute;
+      inset:0;
+      background:rgba(255,255,255,0.95);
+      display:none;
+      flex-direction:column;
+      align-items:center;
+      justify-content:flex-start;
+      padding:40px;
+      overflow-y:auto;
+      animation:fadeIn .3s ease;
+    }
+
+body.dark {
+  --bg-top: #1b1b22;
+  --bg-bottom: #1f2028;
+  --accent: #8f9bff;
+  --accent-light: #b2b8ff;
+  --pink: #ffb3d9;
+  --blue: #9cd2ff;
+  --yellow: #fff5b8;
+  --lilac: #c7b5ff;
+  --white: #262730;
+  --dark: #f2f2f5;
+  --muted: #2b2c36;
+  --border: #3a3b46;
+  color: var(--dark);
+  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-bottom) 100%);
+}
+
+body {
+  transition: background 0.5s ease, color 0.4s ease;
+}
+
+.button, .theme-toggle {
+  box-shadow: 0 4px 10px rgba(150, 140, 255, 0.2);
+}
+
+.button:hover, .theme-toggle:hover {
+  filter: brightness(1.1);
+  transform: scale(1.05);
+  transition: 0.25s;
+}
+
+    @keyframes fadeIn{
+      from{opacity:0;transform:translateY(10px)}
+      to{opacity:1;transform:none}
+    }
+    .modal.active{display:flex;}
+    .modal-box{
+      max-width:720px;
+      background:var(--muted);
+      border-radius:16px;
+      border:2px solid var(--accent-light);
+      padding:30px;
+      box-shadow:0 8px 20px rgba(0,0,0,0.06);
+    }
+    .modal h2{font-family:'Comfortaa';color:var(--accent);margin-bottom:12px;}
+    .modal h3{font-size:18px;color:var(--pink);margin-top:18px;margin-bottom:6px;}
+    .modal p{color:#6e5b57;line-height:1.6;margin-bottom:6px;}
+    .close-btn{
+      margin-top:20px;
+      background:linear-gradient(90deg,var(--lilac),var(--pink));
+      color:#fff;
+      font-weight:700;
+      border:none;
+      border-radius:10px;
+      padding:10px 24px;
+      cursor:pointer;
+      transition:.2s;
+    }
+    .close-btn:hover{opacity:.9;transform:translateY(-2px);}
+    @media(max-width:820px){.inner{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
@@ -242,19 +329,19 @@
         <img src="assets/Arrow3.png" alt="arrow right">
       </div>
       <div class="bar-url">https://duckybot.com</div>
+      <div class="theme-toggle">
+        <img src="assets/Config.png" id="themeIcon" alt="theme toggle">
+      </div>
     </div>
 
     <div class="browser-tabs">
       <div class="active">About ✕</div>
-      <div onclick="window.location.href='comms.html'">Comms ✕</div>
-      <div onclick="window.location.href='terms.html'">T.o.S ✕</div>
+      <div onclick="openModal('comms')">Comms ✕</div>
+      <div onclick="openModal('terms')">T.o.S ✕</div>
     </div>
 
     <div class="frame">
-      <div class="topbar">
-        <strong> </strong>
-        <span> </span>
-      </div>
+      <div class="topbar"></div>
 
       <div class="inner">
         <div>
@@ -269,13 +356,11 @@
 
           <div class="feature">
             <h2>🌼 What does it do?</h2>
-            <p>♡ Ducky is an adorable bot created so that your players can have an immersive experience between trainer and their Pokémon. Care for an adorable virtual Pokémon, showering it with love, food, and virtual attention.</p>
+            <p>♡ Ducky is an adorable bot created so that your players can have an immersive experience between trainer and their Pokémon.</p>
             <p>♡ Feed, pet, and play with your Pokémon to keep it happy and healthy. See Pokémon evolve based on interactions and achievements!</p>
-            <p>♡ Unlock new activities to interact with your Pokémon and your friends' Pokémon. All of this with a cute and adorable interface to see all the information about your Pokémon's current state!</p>
-
             <div class="actions">
-              <a class="btn" href="comms.html"><img src="assets/Star.png"> Commands</a>
-              <a class="btn" href="status.html"><img src="assets/Ray.png"> Status</a>
+              <div class="btn" onclick="openModal('comms')"><img src="assets/Star.png"> Commands</div>
+              <div class="btn" onclick="openStatusModal()"><img src="assets/Ray.png"> Status</div>
               <a class="btn" href="donate.html"><img src="assets/Heart.png"> Donate</a>
               <a class="btn" href="https://discord.gg/TKTBtHWEwJ" target="_blank"><img src="assets/Controle.png"> Support</a>
             </div>
@@ -289,10 +374,82 @@
       </div>
 
       <div class="footer">Developed with ♡ by 여운!</div>
+
+      <div id="statusModal" class="status-modal">
+        <span class="status-icon" id="statusIcon">🟢</span>
+        <div class="status-text" id="statusText">Online — The bot is running perfectly!</div>
+        <button class="status-close" onclick="closeStatusModal()">✖ Close</button>
+      </div>
+
+<div id="modal-comms" class="modal">
+  <div class="modal-box">
+<h2>🌱 Ducky Commands</h2>
+
+    <h3><img src="assets/Star.png" class="icon"> Main Commands</h3>
+    <p><strong>/start</strong> — Begin your Pokémon journey!</p>
+    <p><strong>/profile</strong> — View your trainer profile.</p>
+    <p><strong>/inventory</strong> — Check your items in your bag.</p>
+
+    <h3><img src="assets/Heart.png" class="icon"> Interaction Commands</h3>
+    <p><strong>/feed</strong> — Give food to your Pokémon.</p>
+    <p><strong>/play</strong> — Play with your Pokémon to increase happiness.</p>
+    <p><strong>/bath</strong> — Give your Pokémon a relaxing bath.</p>
+    <p><strong>/train</strong> — Train and improve your Pokémon’s stats.</p>
+    <p><strong>/pokémon</strong> — View your Pokémon’s details.</p>
+
+    <h3><img src="assets/Ray.png" class="icon"> Battle & Adventure</h3>
+    <p><strong>/battle</strong> — Challenge another trainer!</p>
+    <p><strong>/quests</strong> — Complete fun tasks.</p>
+    <p><strong>/daily</strong> — Claim your daily reward.</p>
+    <p><strong>/cooldowns</strong> — Check your current cooldowns.</p>
+    <p><strong>/leaderboard</strong> — See who’s the best trainer!</p>
+
+    <h3><img src="assets/Controle.png" class="icon"> Trainer Progress</h3>
+    <p><strong>/learn</strong> — Teach new moves to your Pokémon.</p>
+    <p><strong>/evolve</strong> — Evolve your Pokémon.</p>
+    <p><strong>/held</strong> — Give an item to your partner.</p>
+
+    <h3><img src="assets/Store.png" class="icon"> Shop & Extras</h3>
+    <p><strong>/shop</strong> — Browse the item shop.</p>
+    <p><strong>/buy</strong> — Purchase items from the shop.</p>
+    <p><strong>/vote</strong> — Support Ducky Bot and earn rewards!</p>
+
+    <button class="close-btn" onclick="closeModal('comms')">Close</button>
+  </div>
+</div>
+
+      <div id="modal-terms" class="modal">
+        <div class="modal-box">
+          <h2>📜 Terms of Service</h2>
+          <p>By using Ducky Bot, you agree to follow all Discord ToS and Community Guidelines.</p>
+          <p>Automation, exploits or abuse are strictly forbidden. Violations may result in bans.</p>
+          <p>We only store Pokémon-related data (level, affection, stats) — never personal info.</p>
+          <p>We may modify or remove features at any time. Continued use means you accept those changes.</p>
+          <p>For help, join our <a href="https://discord.gg/TKTBtHWEwJ" target="_blank">support server</a>.</p>
+          <button class="close-btn" onclick="closeModal('terms')">Close</button>
+        </div>
+      </div>
     </div>
   </div>
 
   <script>
+    const themeIcon = document.getElementById("themeIcon");
+    function toggleTheme(){
+      document.body.classList.toggle("dark");
+      const isDark = document.body.classList.contains("dark");
+      themeIcon.src = isDark ? "assets/Config.png" : "assets/Config.png";
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+    }
+    themeIcon.addEventListener("click", toggleTheme);
+
+    window.addEventListener("load", () => {
+      const savedTheme = localStorage.getItem("theme");
+      if(savedTheme === "dark"){
+        document.body.classList.add("dark");
+        themeIcon.src = "assets/Config.png";
+      }
+    });
+
     const phrases = [
       "Ducky is feeling sleepy...",
       "Ducky found a shiny Psyduck!",
@@ -303,7 +460,41 @@
     setInterval(()=>{
       document.getElementById("duckyPhrase").textContent =
         phrases[Math.floor(Math.random()*phrases.length)];
-    }, 3000);
+    },3000);
+
+    function openModal(id){document.getElementById(`modal-${id}`).classList.add('active');}
+    function closeModal(id){document.getElementById(`modal-${id}`).classList.remove('active');}
+
+    const statusModal = document.getElementById("statusModal");
+    const statusIcon = document.getElementById("statusIcon");
+    const statusText = document.getElementById("statusText");
+
+    const botStatus = "maintenance";
+
+    function setStatus() {
+      if (botStatus === "online") {
+        statusIcon.textContent = "🟢";
+        statusText.textContent = "Online — The bot is running perfectly!";
+        statusText.style.color = "#79c48c";
+      } else if (botStatus === "maintenance") {
+        statusIcon.textContent = "🟡";
+        statusText.textContent = "Maintenance — Some features may be limited!";
+        statusText.style.color = "#d6b85b";
+      } else {
+        statusIcon.textContent = "🔴";
+        statusText.textContent = "Offline — The bot is currently unavailable!";
+        statusText.style.color = "#d66a6a";
+      }
+    }
+
+    function openStatusModal() {
+      setStatus();
+      statusModal.classList.add("active");
+    }
+
+    function closeStatusModal() {
+      statusModal.classList.remove("active");
+    }
   </script>
 </body>
 </html>
