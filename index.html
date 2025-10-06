@@ -318,6 +318,16 @@ body {
     }
     .close-btn:hover{opacity:.9;transform:translateY(-2px);}
     @media(max-width:820px){.inner{grid-template-columns:1fr}}
+
+    .highlight {
+  color: var(--accent);
+  font-weight: 700;
+  text-decoration: none;
+}
+.highlight:hover {
+  color: var(--pink);
+  text-decoration: underline;
+}
   </style>
 </head>
 <body>
@@ -420,17 +430,71 @@ body {
   </div>
 </div>
 
-      <div id="modal-terms" class="modal">
-        <div class="modal-box">
-          <h2>📜 Terms of Service</h2>
-          <p>By using Ducky Bot, you agree to follow all Discord ToS and Community Guidelines.</p>
-          <p>Automation, exploits or abuse are strictly forbidden. Violations may result in bans.</p>
-          <p>We only store Pokémon-related data (level, affection, stats) — never personal info.</p>
-          <p>We may modify or remove features at any time. Continued use means you accept those changes.</p>
-          <p>For help, join our <a href="https://discord.gg/TKTBtHWEwJ" target="_blank">support server</a>.</p>
-          <button class="close-btn" onclick="closeModal('terms')">Close</button>
-        </div>
-      </div>
+<div id="modal-terms" class="modal">
+  <div class="modal-box">
+    <h2>
+  <img src="assets/Book.png" alt="icon" style="width:24px; height:24px; vertical-align:middle; margin-right:6px;">
+  Terms of Service
+</h2>
+    <p>(For <span class="highlight">Ducky Bot</span>)</p>
+    <p><span class="highlight">Last updated:</span> October 6, 2025</p>
+    <p>⠀</p>
+    <p>In order for clear readability, we’ve simplified this as much as we can. Please read this carefully. By using the bot, you agree to these terms.</p>
+    <p>Please note that violation of any of the untolerated behaviors listed below may lead to <span class="highlight">permanent termination</span> of your access to Ducky without warning or explanation. The examples listed are not the only behaviors that may result in enforcement.</p>
+    <p>⠀</p>
+
+    <h2>Misuse of the bot or its features</h2>
+    <p>Using Ducky to <span class="highlight">spam</span>, <span class="highlight">harass</span>, or harm other users, servers, or communities is <span class="highlight">not allowed</span>.</p>
+    <p>Any form of automation, self-botting, or manipulation that negatively affects stability or fairness of gameplay may result in restriction or <span class="highlight">permanent ban</span>.</p>
+    <p>⠀</p>
+
+    <h2>Alt inflation, exploiting, or reselling of in-bot currencies</h2>
+    <p>Creating alternate accounts or using automated methods to gain unfair advantages or inflate in-bot currencies is <span class="highlight">strictly prohibited</span>.</p>
+    <p>Sharing or using exploit methods related to global currencies, items, or Pokémon progression is <span class="highlight">not allowed</span>.</p>
+    <p>Real money trading, which includes any exchange involving something of real-world value in return for in-bot assets such as Pokémon, coins, tickets, or any future cross-server currency, is <span class="highlight">forbidden</span>. This includes "rewarding" users with in-bot items for providing something worth real money.</p>
+    <p>⠀</p>
+    <p>Such behavior may result in <span class="highlight">data deletion</span>, including currency resets or complete account removal.</p>
+    <p>⠀</p>
+
+    <h2>Data and information usage</h2>
+    <p>The bot collects limited data necessary to operate its game features, including:</p>
+    <p>• Discord User ID</p>
+    <p>• Server ID</p>
+    <p>• Game progress, including Pokémon, items, and stats</p>
+    <p>⠀</p>
+    <p>This data is used solely for gameplay and functionality. It is <span class="highlight">never shared or sold</span> to third parties.</p>
+    <p>Users may request deletion of their stored data by contacting the developer through the support server.</p>
+    <p>⠀</p>
+
+    <h2>We reserve the right to evaluate</h2>
+    <p>Users who exist solely to damage or disrupt Ducky may have their access removed at our discretion.</p>
+    <p>We may also restrict or remove access from users who cause a generally negative impact on the bot, its community, or its services.</p>
+    <p>⠀</p>
+
+    <h2>Service availability</h2>
+    <p>The bot may experience downtime, data resets, or temporary unavailability at any time without prior notice.</p>
+    <p>Features may be changed, reworked, or removed without warning. We do not guarantee continuous uptime or permanent data storage.</p>
+    <p>⠀</p>
+
+    <h2>Disclaimer</h2>
+    <p>Ducky is a <span class="highlight">fan-made project</span> inspired by the Pokémon franchise. It is not affiliated with, endorsed by, or associated with Nintendo, Game Freak, or The Pokémon Company.</p>
+    <p>All Pokémon names, sprites, and assets belong to their respective owners.</p>
+    <p>The Ducky Bot system and website are the property of 여운.</p>
+    <p>⠀</p>
+
+    <h2>Liability</h2>
+    <p>We are not responsible for data loss, progress resets, or damages resulting from the use or inability to use the bot.</p>
+    <p>Use of Ducky Bot is entirely at your own risk.</p>
+    <p>⠀</p>
+
+    <h2>Contact</h2>
+    <p>For support, questions, or data removal requests, please contact us through:</p>
+    <p><span class="highlight">Discord:</span> <a href="https://discord.gg/TKTBtHWEwJ" target="_blank" class="highlight">Join our Support Server</a></p>
+    <p><span class="highlight">Email:</span> <strong>support@ducky.bot</strong></p>
+
+    <button class="close-btn" onclick="closeModal('terms')">Close</button>
+  </div>
+</div>
     </div>
   </div>
 
